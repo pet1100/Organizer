@@ -1,0 +1,9 @@
+<%= form_tag login_path do %>
+
+    <%= label_tag :username, :username, :class => 'control-label' %>
+  	<%= text_field_tag :username, params[:username], :class => 'text_field form-control', autocorrect:"off", autocapitalize:"none", autocomplete:"off", autofocus: :autofocus %>
+
+    <%= label_tag :password, :password, :class => 'control-label' %>
+  	<%= password_field_tag :password, "", :class => 'text_field form-control', autocorrect:"off", autocapitalize:"none", autocomplete:"off"%>
+    <%= submit_tag 'Log på', :class => 'btn btn-primary' %>
+  <% end %>
