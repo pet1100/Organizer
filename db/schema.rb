@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_28_190331) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_29_195143) do
+  create_table "assigned_tasks", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "task_id", null: false
+    t.index ["task_id"], name: "index_assigned_tasks_on_task_id"
+    t.index ["user_id"], name: "index_assigned_tasks_on_user_id"
+  end
+
+  create_table "tasks", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.datetime "completed_at"
+    t.integer "repeat_after"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -20,4 +34,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_28_190331) do
     t.index ["username"], name: "index_users_on_username"
   end
 
+  add_foreign_key "assigned_tasks", "tasks"
+  add_foreign_key "assigned_tasks", "users"
 end
