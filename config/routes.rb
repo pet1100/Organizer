@@ -15,10 +15,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  root :to => 'sessions#new'
+  root :to => 'sessions#new', constraints: NotLoggedIn.new
   post 'login' => "sessions#create", as: :login, constraints: NotLoggedIn.new
   constraints(IsLoggedIn.new) do
     post 'logout' => "sessions#destroy", as: :logout
-    get 'home' => 'home#index', as: :home
+    root :to => 'home#index', as: :home
   end
 end
