@@ -1,0 +1,15 @@
+<%= simple_form_for @task do |f| %>
+	<%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :repeat_after %>
+  <%= f.input :users, label: :users do %>
+    <%= f.collection_select :users, User.all, :id, :username, {:prompt => true, :multiple=>true } %>
+  <% end %>
+  <%= f.button :submit %>
+<% end %>
+<select class="selectpicker" multiple>
+  <option>Mustard</option>
+  <option>Ketchup</option>
+  <option>Relish</option>
+</select>
+

@@ -18,7 +18,10 @@ Rails.application.routes.draw do
   root :to => 'sessions#new', constraints: NotLoggedIn.new
   post 'login' => "sessions#create", as: :login, constraints: NotLoggedIn.new
   constraints(IsLoggedIn.new) do
-    post 'logout' => "sessions#destroy", as: :logout
     root :to => 'home#index', as: :home
+
+    post 'logout' => "sessions#destroy", as: :logout
+    resources :tasks, only: [:new, :create, :edit]
+
   end
 end

@@ -11,7 +11,7 @@ module ActsAsResourceController
       module_eval <<-"end_eval", __FILE__, __LINE__
       def index
         @search = scope.ransack(params[:q] || {s: '#{options[:default_search]}'})
-        @#{plural_name} = @search.result.paginate(:page=>params[:page], :per_page => 12)
+        @#{plural_name} = @search.result
         @page_title = #{class_name}.model_name.human(:count=>2)
       end
 
@@ -61,7 +61,7 @@ module ActsAsResourceController
       private
 
       def translated_title tag
-        t(tag, :model=>#{class_name}.model_name.human.downcase_first).upcase_first
+        t(tag, :model=>#{class_name}.model_name.human).upcase_first
       end
 
       def scope
