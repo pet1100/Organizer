@@ -2,10 +2,8 @@
 	<%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :repeat_after %>
-  <%= f.input :users, label: :users do %>
-    <%= f.collection_select :users, User.all, :id, :username, {:prompt => true, :multiple=>true } %>
-  <% end %>
-  <%= f.button :submit %>
+  <%= f.association :users, :as => :check_boxes, label_method: :username, include_hidden: false, :input_html => {:multiple => true}  %>
+  <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
 <select class="selectpicker" multiple>
   <option>Mustard</option>

@@ -1,3 +1,12 @@
-<% tasks.each do |t| %>
-<%= t.title %>
-<% end %>
+<%= button_to :new_task, new_task_path, method: :get, class: "btn btn-primary" %>
+
+<table class="table">
+  <tr>
+    <th> <%= :title %> </th>
+  </tr>
+  <% tasks.each do |t| %>
+    <tr>
+      <td><%= t.title %></td>
+    </tr>
+  <% end %>
+</table>
