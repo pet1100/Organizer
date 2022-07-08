@@ -45,6 +45,7 @@ gem 'bootstrap', '~> 5.1', '>= 5.1.3'
 gem 'simple_form'
 gem 'ransack'
 gem 'bootstrap-select-rails'
+gem 'jquery-rails'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
