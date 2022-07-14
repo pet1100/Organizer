@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_29_195143) do
   create_table "tasks", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "title"
     t.string "description"
-    t.datetime "completed_at"
+    t.date "completed_at"
     t.integer "repeat_after"
   end
 

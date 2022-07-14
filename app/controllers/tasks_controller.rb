@@ -17,6 +17,14 @@ class TasksController < HomeController
     end
   end
 
+  def toggle
+    if params[:checked]
+      Task.find(params[:id]).update completed_at: Time.now
+    else
+      Task.find(params[:id]).update completed_at: nil
+    end
+  end
+
   def permitted_attributes
     params.require(:task).permit(:title, :description, :repeat_after, user_ids: [])
   end
