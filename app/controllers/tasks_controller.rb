@@ -9,7 +9,11 @@ class TasksController < HomeController
     @task.description= _task[:description]
     @task.repeat_after= _task[:repeat_after]
     if @task.save
-      @task.update user_ids: _task[:user_ids].map(&:to_i)
+      if _task[:user_ids]
+        @task.update user_ids: _task[:user_ids]
+      else
+        @task.update user_ids: User.pluck(:id)
+      end
       redirect_to root_path, :notice=>translated_title("helpers.flash.created")
     else
       @page_title = translated_title('helpers.titles.new')
@@ -18,7 +22,7 @@ class TasksController < HomeController
   end
 
   def toggle
-    if params[:checked]
+    if params[:checked] == "true"
       Task.find(params[:id]).update completed_at: Time.now
     else
       Task.find(params[:id]).update completed_at: nil

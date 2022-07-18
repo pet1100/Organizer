@@ -4,6 +4,7 @@
   <tr>
     <th> </th>
     <th> <%= :title %> </th>
+    <th> <%= :description %> </th>
   </tr>
   <% tasks.each do |t| %>
     <tr>
@@ -11,10 +12,11 @@
         <% unless t.completed_at %>
         <input class="form-check-input checkbox" type="checkbox" value="" data-id=<%= t.id %> />
         <% else %>
-        <input class="form-check-input checkbox" type="checkbox" value="true" />
+        <input class="form-check-input checkbox" type="checkbox" value="true" checked disabled />
         <% end %>
       </td>
       <td><%= t.title %></td>
+      <td><%= t.description %></td>
     </tr>
   <% end %>
 </table>
