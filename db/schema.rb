@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_29_195143) do
   create_table "tasks", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "title"
     t.string "description"
-    t.date "completed_at"
+    t.datetime "completed_at"
     t.integer "repeat_after"
   end
 
@@ -29,6 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_29_195143) do
     t.string "username"
     t.string "password_digest"
     t.boolean "admin"
+    t.datetime "last_refreshed", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["username"], name: "index_users_on_username"
