@@ -29,6 +29,12 @@ class TasksController < HomeController
     end
   end
 
+private
+
+  def after_update_path
+    redirect_to root_path, :notice=>translated_title("helpers.flash.created")
+  end
+
   def permitted_attributes
     params.require(:task).permit(:title, :description, :repeat_after, user_ids: [])
   end
