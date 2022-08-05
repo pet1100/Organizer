@@ -45,7 +45,7 @@ module ActsAsResourceController
       def update
         @#{singular_name} = scope.find(params[:id])
         if @#{singular_name}.update(permitted_attributes)
-          redirect_to @#{singular_name}, :notice=>translated_title("helpers.flash.updated")
+          after_update_path
         else
           @page_title = translated_title('helpers.titles.edit')
           render "shared/edit"
@@ -66,6 +66,10 @@ module ActsAsResourceController
 
       def scope
         #{class_name}.all
+      end
+
+      def after_update_path
+        redirect_to @#{singular_name}, :notice=>translated_title("helpers.flash.updated")
       end
 
       end_eval

@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     root :to => 'home#index', as: :home
 
     post 'logout' => "sessions#destroy", as: :logout
-    resources :tasks, only: [:new, :create, :edit]
+    resources :tasks, only: [:new, :create, :edit, :update]
     patch 'toggle/:id/task' => "tasks#toggle"
 
   end

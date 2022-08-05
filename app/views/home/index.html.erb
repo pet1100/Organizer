@@ -15,7 +15,7 @@
         <input class="form-check-input checkbox" type="checkbox" value="true" checked disabled />
         <% end %>
       </td>
-      <td><%= t.title_with_timer %></td>
+      <td><%= link_to t.title_with_timer, edit_task_path(t) %></td>
       <td><%= t.description %></td>
     </tr>
   <% end %>
