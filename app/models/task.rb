@@ -11,7 +11,7 @@ class Task < ApplicationRecord
   end
 
   def reopen
-    if completed_at && completed_at + repeat_after.send("days") <= DateTime.now
+    if completed_at && completed_at.beginning_of_day + repeat_after.send("days") <= DateTime.now
       self.update completed_at: nil
     end
   end
