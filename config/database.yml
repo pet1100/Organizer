@@ -1,1 +1,15 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
 
+development:
+  <<: *default
+  database: organizer_dk_dev
+
+test:
+  <<: *default
+  database: organizer_dk_test
+
+production:
+  <<: *default
+  database: organizer_dk
