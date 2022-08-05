@@ -24,7 +24,7 @@ class HomeController < ApplicationController
   private
   def reopen_tasks
     if current_user.refreshable?
-      current_user.tasks.each do |task|
+      current_user.tasks.completed.repeatable.each do |task|
         task.reopen
       end
     end

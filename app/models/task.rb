@@ -4,7 +4,7 @@ class Task < ApplicationRecord
 
   scope :uncompleted, -> { where(completed_at: nil) }
   scope :completed, -> { where.not(completed_at: nil) }
-  scope :repeatable, -> { where.not(repeat_after: nil) }
+  scope :repeatable, -> { where.not(repeat_after: [nil, 0]) }
 
   def title_with_timer
     "#{title} #{repeat_after ? "(#{repeat_after})" : "" }"
