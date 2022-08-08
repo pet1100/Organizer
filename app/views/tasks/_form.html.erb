@@ -2,7 +2,7 @@
 	<%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :repeat_after %>
-  <%= f.association :users, :as => :check_boxes, label_method: :username, include_hidden: false, :input_html => {:multiple => true}  %>
+  <%= f.association :users, :as => :check_boxes, label_method: :name, include_hidden: false, :input_html => {:multiple => true}  %>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
 

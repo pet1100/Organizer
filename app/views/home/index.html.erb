@@ -1,25 +1,25 @@
-<%= button_to :new_task, new_task_path, method: :get, class: "btn btn-primary" %>
 
-<table class="table">
-  <tr>
-    <th> </th>
-    <th> <%= :title %> </th>
-    <th> <%= :description %> </th>
-  </tr>
-  <% tasks.each do |t| %>
-    <tr>
-      <td>
-        <% unless t.completed_at %>
-        <input class="form-check-input checkbox" type="checkbox" value="" data-id=<%= t.id %> />
-        <% else %>
-        <input class="form-check-input checkbox" type="checkbox" value="true" checked disabled />
-        <% end %>
-      </td>
-      <td><%= link_to t.title_with_timer, edit_task_path(t) %></td>
-      <td><%= t.description %></td>
-    </tr>
-  <% end %>
-</table>
+<%= button_to :new_task, new_task_path, method: :get, class: "btn btn-primary m-1" %>
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="incomplet-tab" data-bs-toggle="tab" data-bs-target="#incomplet" type="button" role="tab" aria-controls="incomplet" aria-selected="true">Uncompleted</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="complet-tab" data-bs-toggle="tab" data-bs-target="#complet" type="button" role="tab" aria-controls="complet" aria-selected="false">Completed</button>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="incomplet" role="tabpanel" aria-labelledby="incomplet-tab">
+    <%= render "table", :tasks => tasks.uncompleted  %>
+  </div>
+  <div class="tab-pane fade" id="complet" role="tabpanel" aria-labelledby="complet-tab">
+    <%= render "table", :tasks => tasks.completed %>
+  </div>
+</div>
+
+
+
 
 <script>
   $(document).ready(function() {

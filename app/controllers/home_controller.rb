@@ -9,13 +9,11 @@ class HomeController < ApplicationController
   end
   helper_method :current_user
 
+
   def tasks
     return [] if current_user.tasks.empty?
     unless @tasks
-      tasks = current_user.tasks
-      task_ids = tasks.uncompleted.pluck(:id)
-      task_ids << tasks.completed.repeatable.pluck(:id)
-      @tasks = tasks.find(task_ids)
+      @tasks = current_user.tasks
     end
     @tasks
   end

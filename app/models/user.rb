@@ -9,6 +9,10 @@ class User < ApplicationRecord
   validates_length_of :password, :minimum => 6
 
   def refreshable?
-    last_refreshed.hour != DateTime.now.hour || last_refreshed < 1.hour.ago
+    last_refreshed.day != DateTime.now.day || last_refreshed < 1.day.ago
+  end
+
+  def name
+    username.capitalize
   end
 end
