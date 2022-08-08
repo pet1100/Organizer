@@ -4,7 +4,7 @@ class UserTest < ActiveSupport::TestCase
 
   def setup
     Timecop.freeze(202, 10, 5, 3)
-    @user = User.create username: "test", password: "123456", last_refreshed: 2.hours.ago
+    @user = User.create username: "test", password: "123456", last_refreshed: 4.hours.ago
   end
 
   test "test should reopen task" do
