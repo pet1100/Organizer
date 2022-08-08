@@ -1,0 +1,27 @@
+<table class="table">
+  <tr>
+    <th> </th>
+    <th> <%= :title %> </th>
+    <th> <%= :description %> </th>
+  </tr>
+  <% tasks.each do |t| %>
+    <tr>
+      <td>
+        <% unless t.completed_at %>
+        <input class="form-check-input checkbox" type="checkbox" value="" data-id=<%= t.id %> />
+        <% else %>
+        <input class="form-check-input checkbox" type="checkbox" value="true" checked disabled />
+        <% end %>
+      </td>
+      <td><%= link_to t.title, edit_task_path(t) %></td>
+      <td><%= t.description %></td>
+    </tr>
+  <% end %>
+</table>
+
+<style>
+  a {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+  }
+</style>
