@@ -21,6 +21,13 @@ class TasksController < HomeController
     end
   end
 
+  def destroy
+    task = Task.find(params[:id])
+    task.assigned_tasks.destroy_all
+    task.destroy
+    redirect_to root_path
+  end
+
   def toggle
     if params[:checked] == "true"
       Task.find(params[:id]).update completed_at: Time.now
