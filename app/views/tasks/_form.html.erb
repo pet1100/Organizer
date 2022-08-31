@@ -6,3 +6,7 @@
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
 
+<%= simple_form_for(@task, :method => :delete) do |f| %>
+	<%= f.button :submit, t("task.destroy", :default => 'Destroy Task'), class: "btn btn-danger mt-1" %>
+<% end %>
+
