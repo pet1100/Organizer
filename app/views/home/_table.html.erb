@@ -8,9 +8,13 @@
     <tr>
       <td>
         <% unless t.completed_at %>
-        <input class="form-check-input checkbox" type="checkbox" value="" data-id=<%= t.id %> />
+          <input class="form-check-input checkbox" type="checkbox" value="" data-id=<%= t.id %> />
         <% else %>
-        <input class="form-check-input checkbox" type="checkbox" value="true" checked disabled />
+          <% if current_user.admin %>
+            <input class="form-check-input checkbox" type="checkbox" value="true" checked />
+          <% else %>
+            <input class="form-check-input checkbox" type="checkbox" value="true" checked disabled />
+          <% end %>
         <% end %>
       </td>
       <td><%= link_to t.title, edit_task_path(t) %></td>
