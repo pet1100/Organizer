@@ -1,5 +1,5 @@
 
-<%= button_to :new_task, new_task_path, method: :get, class: "btn btn-primary m-1" %>
+<%= button_to t("task.new", :default => 'new task'), new_task_path, method: :get, class: "btn btn-primary m-1" %>
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
@@ -10,12 +10,14 @@
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
+  <% if tasks.any? %>
   <div class="tab-pane fade show active" id="incomplet" role="tabpanel" aria-labelledby="incomplet-tab">
     <%= render "table", :tasks => tasks.uncompleted  %>
   </div>
   <div class="tab-pane fade" id="complet" role="tabpanel" aria-labelledby="complet-tab">
     <%= render "table", :tasks => tasks.completed %>
   </div>
+  <% end %>
 </div>
 
 
