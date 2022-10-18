@@ -45,18 +45,14 @@ gem 'simple_form'
 gem 'ransack'
 gem 'bootstrap-select-rails'
 gem 'jquery-rails'
+gem 'sqlite3'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
-
-group :production do
-  gem 'pg'
-end
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'i18n-debug'
-  gem 'mysql2'
 end
 
 group :development do
