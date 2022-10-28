@@ -255,7 +255,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   puma (~> 5.0)
-  rails (~> 7.0.3)
+  rails (~> 7.0.4)
   ransack
   selenium-webdriver
   simple_form
