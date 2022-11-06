@@ -25,7 +25,8 @@ Rails.application.routes.draw do
     patch 'toggle/:id/task' => "tasks#toggle"
     namespace :snapshots do
         get :export
-        post :import
+        get :import
+        post :load
         get :show
     end
 

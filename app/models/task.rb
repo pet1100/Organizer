@@ -24,7 +24,6 @@ class Task < ApplicationRecord
       repeat_after: repeat_after,
       user_ids: user_ids
     }
-
     hash
   end
 end

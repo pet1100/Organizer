@@ -10,13 +10,10 @@ class SnapshotsController < HomeController
   end
 
   def import
-    add_breadcrumb selected_department.name, root_path
-    add_breadcrumb folder.name, folder if folder
-    add_breadcrumb "Spørgeskemaer", questionnaires_path(folder_id: folder.id)
-    add_breadcrumb "Importer"
 
-    @folders = selected_department.folders.map { |f| [f.name, f.id] }
-    @selected_folder = params[:folder_id]
+  end
+
+  def load
   end
 
 end
