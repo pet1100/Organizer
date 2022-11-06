@@ -1,5 +1,7 @@
 
 <%= button_to t("task.new", :default => 'new task'), new_task_path, method: :get, class: "btn btn-primary m-1" %>
+<%= button_to t("snapshot.show", :default => 'Backup'), snapshots_show_path, method: :get, class: "btn btn-primary m-1" %>
+
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">

@@ -15,4 +15,16 @@ class Task < ApplicationRecord
       self.update completed_at: nil
     end
   end
+
+  def ser
+    hash = {
+      title: title,
+      description: description,
+      completed_at: completed_at,
+      repeat_after: repeat_after,
+      user_ids: user_ids
+    }
+
+    hash
+  end
 end
