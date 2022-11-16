@@ -22,7 +22,7 @@ class SnapshotsController < HomeController
         description: jd['description'],
         completed_at: jd['completed_at'],
         repeat_after: jd['repeat_after'],
-        user_ids: jd['user_ids']
+        user_ids: jd['user_ids'].map{|i| i -1 }
       )
       task.save(validate: false)
 
