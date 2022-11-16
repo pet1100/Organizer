@@ -46,7 +46,6 @@ gem 'ransack'
 gem 'bootstrap-select-rails'
 gem 'jquery-rails'
 gem 'sqlite3'
-gem 'pg'
 gem "ffi"
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
