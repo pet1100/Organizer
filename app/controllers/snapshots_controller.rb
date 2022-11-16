@@ -25,10 +25,9 @@ class SnapshotsController < HomeController
         user_ids: jd['user_ids'].map{|i| i -1 }
       )
       task.save(validate: false)
-
-      redirect_to root_path
-
     end
+    
+    redirect_to root_path
   end
 
 end
