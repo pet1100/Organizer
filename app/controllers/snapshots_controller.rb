@@ -14,6 +14,21 @@ class SnapshotsController < HomeController
   end
 
   def load
+    file_data = params[:import][:attachment]
+    json_data = JSON.parse(file_data.read)
+    json_data.each do |jd|
+      task = Task.new(
+        title: jd['title'],
+        description: jd['description'],
+        completed_at: jd['completed_at'],
+        repeat_after: jd['repeat_after'],
+        user_ids: jd['user_ids']
+      )
+      task.save(validate: false)
+
+      redirect_to root_path
+
+    end
   end
 
 end
