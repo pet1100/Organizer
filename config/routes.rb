@@ -23,6 +23,12 @@ Rails.application.routes.draw do
     post 'logout' => "sessions#destroy", as: :logout
     resources :tasks, only: [:new, :create, :edit, :update, :destroy]
     patch 'toggle/:id/task' => "tasks#toggle"
+    namespace :snapshots do
+        get :export
+        get :import
+        post :load
+        get :show
+    end
 
   end
 end

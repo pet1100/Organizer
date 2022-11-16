@@ -1,0 +1,7 @@
+<%= simple_form_for :import, :url => snapshots_load_path() do |f| %>
+  <div class="form-group">
+    <%= f.label :attachment, t("snapshot.pick_file", :default => 'Pick file') %>
+    <%= f.file_field :attachment, as: :file, accept: "application/json" %>
+  </div>
+  <%= f.submit t("snapshot.load", :default => 'Load backup'), class: "btn btn-primary" %>
+<% end %>
