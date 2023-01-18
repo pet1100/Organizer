@@ -8,6 +8,7 @@ class TasksController < HomeController
     @task.title = _task[:title]
     @task.description= _task[:description]
     @task.repeat_after= _task[:repeat_after]
+    @task.repeat_after= _task[:priority]
     if @task.save
       if _task[:user_ids]
         @task.update user_ids: _task[:user_ids]
@@ -43,6 +44,6 @@ private
   end
 
   def permitted_attributes
-    params.require(:task).permit(:title, :description, :repeat_after, user_ids: [])
+    params.require(:task).permit(:title, :description, :priority, :repeat_after, user_ids: [])
   end
 end

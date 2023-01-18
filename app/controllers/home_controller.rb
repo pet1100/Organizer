@@ -13,7 +13,7 @@ class HomeController < ApplicationController
   def tasks
     return [] if current_user.tasks.empty?
     unless @tasks
-      @tasks = current_user.tasks
+      @tasks = current_user.tasks.order_by_priority
     end
     @tasks
   end

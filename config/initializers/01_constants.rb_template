@@ -1,0 +1,2 @@
+
+TASK_PRIORITY =  { low_priority: 10, medium_priority: 20, high_priority: 30 }

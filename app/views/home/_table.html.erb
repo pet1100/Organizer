@@ -3,6 +3,7 @@
     <th> </th>
     <th> <%= :title %> </th>
     <th> <%= :description %> </th>
+    <th> <%= :priority %> </th>
   </tr>
   <% tasks.each do |t| %>
     <tr>
@@ -19,6 +20,7 @@
       </td>
       <td><%= link_to t.title, edit_task_path(t) %></td>
       <td><%= t.description %></td>
+      <td><%= t.priority %></td>
     </tr>
   <% end %>
 </table>

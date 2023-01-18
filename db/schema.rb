@@ -10,22 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_29_195143) do
-  create_table "assigned_tasks", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "task_id", null: false
+ActiveRecord::Schema[7.0].define(version: 2023_01_18_112508) do
+  create_table "assigned_tasks", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "task_id", null: false
     t.index ["task_id"], name: "index_assigned_tasks_on_task_id"
     t.index ["user_id"], name: "index_assigned_tasks_on_user_id"
   end
 
-  create_table "tasks", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
+  create_table "tasks", force: :cascade do |t|
     t.string "title"
     t.string "description"
     t.datetime "completed_at"
     t.integer "repeat_after"
+    t.integer "priority"
+    t.index ["priority"], name: "index_tasks_on_priority"
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
     t.boolean "admin"
