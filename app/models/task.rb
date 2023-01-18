@@ -5,6 +5,9 @@ class Task < ApplicationRecord
   scope :uncompleted, -> { where(completed_at: nil) }
   scope :completed, -> { where.not(completed_at: nil) }
   scope :repeatable, -> { where.not(repeat_after: [nil, 0]) }
+  scope :order_by_priority, -> { order(priority: :desc) }
+
+  enum priority: Conf.task_priority
 
   def title_with_timer
     "#{title} #{repeat_after ? "(#{repeat_after})" : "" }"
