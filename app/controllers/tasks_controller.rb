@@ -8,7 +8,7 @@ class TasksController < HomeController
     @task.title = _task[:title]
     @task.description= _task[:description]
     @task.repeat_after= _task[:repeat_after]
-    @task.repeat_after= _task[:priority]
+    @task.priority= _task[:priority]
     if @task.save
       if _task[:user_ids]
         @task.update user_ids: _task[:user_ids]
